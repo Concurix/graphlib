@@ -1,7 +1,8 @@
-/Makefile
 /browser.js
-/coverage.html
+/build
 /dist
+/doc
+/Makefile
 /node_modules
 /src
 /test

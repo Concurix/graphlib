@@ -1,5 +1,7 @@
-exports.Digraph = require("./lib/Digraph");
 exports.Graph = require("./lib/Graph");
+exports.Digraph = require("./lib/Digraph");
+exports.CGraph = require("./lib/CGraph");
+exports.CDigraph = require("./lib/CDigraph");
 require("./lib/graph-converters");
 
 exports.alg = {
@@ -9,14 +11,26 @@ exports.alg = {
   dijkstraAll: require("./lib/alg/dijkstraAll"),
   findCycles: require("./lib/alg/findCycles"),
   floydWarshall: require("./lib/alg/floydWarshall"),
+  postorder: require("./lib/alg/postorder"),
+  preorder: require("./lib/alg/preorder"),
   prim: require("./lib/alg/prim"),
   tarjan: require("./lib/alg/tarjan"),
   topsort: require("./lib/alg/topsort")
 };
 
+exports.converter = {
+  json: require("./lib/converter/json.js")
+};
+
 exports.data = {
   PriorityQueue: require("./lib/data/PriorityQueue"),
   Set: require("./lib/data/Set")
+};
+
+var filter = require("./lib/filter");
+exports.filter = {
+  all: filter.all,
+  nodesFromList: filter.nodesFromList
 };
 
 exports.version = require("./lib/version");
