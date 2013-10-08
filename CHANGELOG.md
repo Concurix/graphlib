@@ -1,3 +1,131 @@
+v0.5.12
+=======
+
+* assert.deepEqual(g.copy(), g) now returns true.
+
+v0.5.11
+=======
+
+* ~5x speedup for filterNodes.
+
+v0.5.10
+=======
+
+* Doc fixes.
+* Some performance improvement to delNode and filterNodes.
+
+v0.5.9
+======
+
+* Added preorder and postorder tree traversal functions.
+
+v0.5.8
+======
+
+* Fixed bug where graph value was not copied correctly with graph.copy().
+
+v0.5.7
+======
+
+* Fix toString, copy, filterNodes for compound graphs.
+
+v0.5.6
+======
+
+* `components` now works for directed graphs.
+
+v0.5.5
+======
+
+* Rely less on instanceof checks which may fail with different versions of the
+  library loaded.
+
+v0.5.4
+======
+
+* Added a JSON encoder / decoder
+
+v0.5.3
+======
+
+* Fixed bug where removing a node would not remove it from its parent's
+  children set.
+
+v0.5.2
+======
+
+* Fixed bug where addNode would use `{}` as the default value if a initial
+  value was not assigned.
+* Fixed bug where auto-assiged id was not used correcty in compound graphs.
+
+v0.5.1
+======
+
+* `addNode` now behaves like `addEdge` in that it assigns a unique id to the
+  node if the given id was `undefined` or `null`.
+
+v0.5.0
+======
+
+The release introduces these **backwards incompatible** changes:
+
+* Removed `equals` from `Graph` and `Digraph`. This was used for test only. Use
+  `assert.deepEqual` instead.
+
+This release also introduces compound graphs. See the API docs for `CGraph` and
+`CDigraph` for details.
+
+v0.4.2
+======
+
+* No externally visible changes.
+
+v0.4.1
+======
+
+* `(di)graph.addEdge(...)` now returns the id of the edge added.
+* Fix bug where auto-assigned edge ids could collide with existing edge ids.
+
+v0.4.0
+======
+
+This release introduces **backwards incompatible** changes.
+
+`subgraph` has been removed. Instead of:
+
+```js
+graph.subgraph([1, 2, 3]);
+```
+
+Use:
+
+```js
+var filter = require("graphlib").filter;
+graph.filterNodes(filter.nodesFromList([1, 2, 3]));
+```
+
+The following are backwards compatible changes:
+
+* Introduced `graph.filterNodes` for creating a new graph by applying a filter
+  to nodes in `graph`.
+* Add a new module `filter` that includes some simple filters.
+
+v0.3.3
+======
+
+* More doc improvements.
+
+v0.3.2
+======
+
+* Initial pass at nicer documentation.
+
+v0.3.1
+======
+
+* @solleks fixed a bug in which `alg.floydWarshall` could return the wrong
+  shortest path with multiple edges between the same nodes (#10).
+
 v0.3.0
 ======
 
